@@ -4,10 +4,6 @@ Follow these steps to set up and run the project:
 
 #### Step 1: Clone the Repository
 Clone the repository to your local machine:
-```bash
-git clone <repository_url>
-cd <repository_name>
-```
 
 #### Step 2: Run the Backend
 From one terminal, run the backend script:
