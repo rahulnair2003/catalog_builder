@@ -1,0 +1,223 @@
+/* General Layout */
+.main-layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Side Panel Toggle Button */
+.side-panel-toggle {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  background-color: #001f3f; /* Navy Blue */
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: left 0.3s ease;
+}
+
+.side-panel-toggle:hover {
+  background-color: #002a5c; /* Slightly lighter navy */
+}
+
+/* Side Panel */
+.side-panel {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Start off-screen */
+  width: 300px;
+  height: 100%;
+  background-color: #f4f4f9;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow-y: auto;
+  transition: left 0.3s ease-in-out; /* Smooth slide-in effect */
+  z-index: 999;
+}
+
+.side-panel.open {
+  left: 0; /* Slide into view */
+}
+
+.side-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Close Button */
+.side-panel .close-button {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 280px;
+}
+
+.side-panel .close-button:hover {
+  color: #ff4d4d; /* Red on hover */
+  transform: scale(1.1); /* Slightly enlarge */
+  transition: all 0.2s ease;
+}
+
+/* Side Panel Title */
+.side-panel h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #001f3f; /* Navy Blue */
+}
+
+/* Main Panel (Table Section) */
+.main-panel {
+  flex: 3;
+  padding-left: 40px; /* Offset for the side panel toggle button */
+  padding-top: 20px;
+  overflow-y: auto;
+}
+
+/* Main Table */
+.main-table {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.table-header h2 {
+  margin: 0;
+  color: #001f3f;
+  font-size: 1.5rem;
+}
+
+.table-search {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+  outline: none;
+}
+
+.table-wrapper {
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: calc(100vh - 200px); /* Adjust based on viewport */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  position: sticky; /* Sticky header for the table */
+  top: 0;
+  background-color: #001f3f; /* Navy blue header background */
+  color: white;
+  z-index: 1;
+}
+
+.table td,
+.table th {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.table td {
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.table td.selected {
+  background-color: #007bff; /* Highlight selected cells in blue */
+  color: white;
+}
+
+.table td:empty {
+  cursor: default; /* Ignore empty cells */
+}
+
+/* Current Catalog */
+.current-catalog {
+  flex: 1;
+  background-color: #f4f4f9;
+  padding: 20px;
+  border-left: 1px solid #ddd;
+  overflow-y: auto;
+  max-height: calc(100vh - 100px); /* Limit height */
+}
+
+.current-catalog h3 {
+  font-size: 1.5rem;
+  color: #001f3f;
+  margin-bottom: 20px;
+}
+
+.current-catalog ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.current-catalog li {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #e6e6e6;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+
+/* Manual Add Search Bar */
+.manual-add {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1; /* Takes available space in the header */
+  max-width: 800px; /* Maximum width similar to Amazon */
+  margin: 0 auto; /* Centered in the header */
+}
+
+.manual-add input {
+  flex: 1; /* Fill available width */
+  padding: 15px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.manual-add input:focus {
+  box-shadow: 0 0 5px #001f3f;
+  border: 1px solid #001f3f;
+}
+
+.manual-add .add-button {
+  background-color: #007bff; /* Blue button */
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.manual-add .add-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
